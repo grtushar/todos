@@ -40,4 +40,24 @@ class Todo {
 	set date(String newDate) {
 		_date = newDate;
 	}
+	
+	Map<String, dynamic> toMap() {
+		Map<String, dynamic> mp = Map<String, dynamic>();
+		mp["title"] = _title;
+		mp["description"] = _description;
+		mp["date"] = _date;
+		mp["priority"] = _priority;
+		
+		if(_id != null) mp["id"] = _id;
+		
+		return mp;
+	}
+	
+	Todo.fromObject(dynamic o) {
+		this._id = o["id"];
+		this.title = o["title"];
+		this.description = o["description"];
+		this.date = o["date"];
+		this.priority = o["priority"];
+	}
 }
