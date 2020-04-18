@@ -70,7 +70,7 @@ class DbHelper {
   
   Future<int> deleteTodo(int id) async {
 		var db = await this.db;
-		int result = await db.rawDelete("DELETE from table $tblTodo where $colId = $id");
+		int result = await db.rawDelete("DELETE from $tblTodo where $colId = $id");
 		return result;
   }
 }
