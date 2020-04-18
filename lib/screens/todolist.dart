@@ -39,8 +39,8 @@ class _TodoListState extends State<TodoList> {
 				    title: Text(todos[position].title),
 				    subtitle: Text(todos[position].date),
 				    leading: CircleAvatar(
-					    backgroundColor: Colors.red,
-					    child: Text(todos[position].id.toString()),
+					    backgroundColor: getColor(todos[position].priority),
+					    child: Text(todos[position].priority.toString()),
 				    ),
 				    onTap: () {
 				    	debugPrint("Tapped on: " + todos[position].id.toString());
@@ -69,5 +69,15 @@ class _TodoListState extends State<TodoList> {
 		    });
 		  });
 	  });
+  }
+
+  Color getColor(int priority) {
+  	switch (priority) {
+		  case 1: return Colors.red;
+		  case 2: return Colors.orange;
+		  case 3: return Colors.green;
+		  
+		  default: return Colors.green;
+	  }
   }
 }
