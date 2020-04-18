@@ -17,7 +17,7 @@ class DbHelper {
 	
 	DbHelper._internal();
 	
-	factory() {
+	factory DbHelper() {
 		return _dbHelper;
 	}
 	
